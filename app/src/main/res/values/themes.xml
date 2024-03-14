@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="Theme.JapaCounter" parent="Theme.MaterialComponents.Light.NoActionBar" />
+
+    <style name="SFProSemiBoldFontStyle">
+        <item name="fontFamily">@font/sf_pro_display_semibold</item>
+        <item name="android:fontFamily">@font/sf_pro_display_semibold</item>
+    </style>
+
+    <style name="SFProBoldFontStyle">
+        <item name="fontFamily">@font/sf_pro_display_bold</item>
+        <item name="android:fontFamily">@font/sf_pro_display_bold</item>
+    </style>
+
+    <style name="SFProMediumFontStyle">
+        <item name="fontFamily">@font/sf_pro_display_medium</item>
+        <item name="android:fontFamily">@font/sf_pro_display_medium</item>
+    </style>
+
+    <style name="SFProRegularFontStyle">
+        <item name="fontFamily">@font/sf_pro_display_regular</item>
+        <item name="android:fontFamily">@font/sf_pro_display_regular</item>
+    </style>
+
+    <style name="ThemeOverlay.Custom.Button" parent="">
+        <item name="colorContainer">@color/orange</item>
+        <item name="colorOnContainer">@android:color/white</item>
+    </style>
+
+    <style name="CardStyle.JapaCounter.Filled" parent="Widget.Material3.CardView.Filled">
+        <item name="cardBackgroundColor">@color/card_view_bg</item>
+        <item name="cardCornerRadius">@dimen/card_view_corner_radius</item>
+        <item name="strokeColor">@color/card_view_bg_tint</item>
+        <item name="strokeWidth">1dp</item>
+    </style>
+
+</resources>

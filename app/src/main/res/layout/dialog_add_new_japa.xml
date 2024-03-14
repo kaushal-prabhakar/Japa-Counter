@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/rootView"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="@dimen/standard_margin"
+    tools:context=".ui.MainActivity">
+
+
+    <TextView
+        android:id="@+id/txtWelcome"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/label_new_japa"
+        android:textColor="@color/orange"
+        android:textSize="@dimen/header_text"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginVertical="@dimen/standard_margin"
+        android:gravity="center"
+        android:orientation="vertical"
+        app:layout_constraintTop_toBottomOf="@+id/txtWelcome">
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/input_japa_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/hint_japa_name"
+            app:boxBackgroundColor="@color/white"
+            app:boxBackgroundMode="outline"
+            app:boxCornerRadiusBottomEnd="@dimen/corner_radius"
+            app:boxCornerRadiusBottomStart="@dimen/corner_radius"
+            app:boxCornerRadiusTopEnd="@dimen/corner_radius"
+            app:boxCornerRadiusTopStart="@dimen/corner_radius"
+            app:boxStrokeColor="@color/box_outline"
+            app:counterEnabled="true"
+            app:counterMaxLength="30"
+            app:hintAnimationEnabled="false"
+            app:hintEnabled="true"
+            app:hintTextColor="@color/hint_text_color">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/txt_japa_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:imeOptions="actionNext"
+                android:inputType="text"
+                android:nextFocusForward="@+id/et_japa_goal"
+                android:outlineProvider="none"
+                android:padding="@dimen/standard_margin"
+                android:textColorHint="@color/hint_text_color" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/input_target"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/hint_goal"
+            app:boxBackgroundColor="@color/white"
+            app:boxBackgroundMode="outline"
+            app:boxCornerRadiusBottomEnd="@dimen/corner_radius"
+            app:boxCornerRadiusBottomStart="@dimen/corner_radius"
+            app:boxCornerRadiusTopEnd="@dimen/corner_radius"
+            app:boxCornerRadiusTopStart="@dimen/corner_radius"
+            app:boxStrokeColor="@color/box_outline"
+            app:counterEnabled="true"
+            app:counterMaxLength="10"
+            app:hintAnimationEnabled="false"
+            app:hintEnabled="true"
+            app:hintTextColor="@color/hint_text_color">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/txt_target"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:imeOptions="actionDone"
+                android:inputType="phone"
+                android:padding="@dimen/standard_margin"
+                android:textColorHint="@color/hint_text_color" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/label_goal_description"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/padding_8dp"
+            android:layout_marginBottom="@dimen/vertical_padding_8dp"
+            android:text="@string/label_goal_description"
+            android:textAllCaps="false"
+            android:textColor="@color/text_color_dim"
+            android:textSize="@dimen/small_text" />
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/vertical_padding_8dp"
+            android:orientation="horizontal">
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnSave"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/padding_8dp"
+                android:layout_weight="1"
+                android:backgroundTint="@color/purple_700"
+                android:padding="@dimen/padding_8dp"
+                android:text="@string/label_save"
+                android:textAllCaps="false"
+                android:textColor="@color/white"
+                android:textSize="@dimen/button_text"
+                app:cornerRadius="@dimen/corner_radius"
+                app:elevation="@dimen/zero_dp"
+                app:strokeColor="@color/purple_700"
+                app:strokeWidth="1dp"/>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnCancel"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/padding_8dp"
+                android:layout_weight="1"
+                android:backgroundTint="@color/white"
+                android:padding="@dimen/padding_8dp"
+                android:text="@string/label_cancel"
+                android:textAllCaps="false"
+                android:textColor="@color/orange"
+                android:textSize="@dimen/button_text"
+                app:cornerRadius="@dimen/corner_radius"
+                app:elevation="@dimen/zero_dp"
+                app:strokeColor="@color/orange"
+                app:strokeWidth="1dp" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
