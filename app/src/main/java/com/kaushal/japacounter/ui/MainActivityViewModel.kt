@@ -103,4 +103,19 @@ class MainActivityViewModel @Inject constructor(
             }
         }
     }
+
+    private val _deleteJapaOutcome = MutableSharedFlow<Outcome<String>>()
+    val deleteJapaOutcome = _deleteJapaOutcome.asSharedFlow()
+
+    fun deleteJapa(japaName: String) {
+        viewModelScope.launch {
+            try {
+                _deleteJapaOutcome.emit(Outcome.loading(true))
+                mainRepository.deleteJapa(japaName)
+                _deleteJapaOutcome.emit(Outcome.success(japaName))
+            } catch (ex: Exception) {
+                _deleteJapaOutcome.emit(Outcome.failure(ex, ex.message.orEmpty()))
+            }
+        }
+    }
 }

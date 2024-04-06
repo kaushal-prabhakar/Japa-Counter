@@ -29,10 +29,12 @@
     <string name="warning_title">Are you Sure ?</string>
     <string name="warning_update_counter_message">You want to update count</string>
     <string name="warning_complete_japa">You want to mark this Japa as Completed</string>
+    <string name="warning_delete_japa">You want to delete this Japa Permanently</string>
 
     <string name="msg_japa_added">New Japa Added Successfully</string>
     <string name="msg_japa_counter_updated">Updated Japa Count Successfully</string>
     <string name="msg_japa_completed">Congratulations! Your Japa has been successfully completed.</string>
+    <string name="msg_japa_delete">%s has been deleted</string>
 
     <string name="err_msg_failure_action">Something went wrong..please try again</string>
 

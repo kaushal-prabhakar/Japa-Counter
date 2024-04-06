@@ -54,6 +54,7 @@ class JapaDetailsFragment(private val japaName: String) : Fragment(), View.OnCli
         binding.imgAdd.setOnClickListener(this)
         binding.btnUpdate.setOnClickListener(this)
         binding.btnMarkComplete.setOnClickListener(this)
+        binding.btnDelete.setOnClickListener(this)
 
         viewModel.getJapaDetails(japaName)
 
@@ -82,7 +83,17 @@ class JapaDetailsFragment(private val japaName: String) : Fragment(), View.OnCli
                         if(it is Outcome.Success) {
                             requireContext().toast(getString(R.string.msg_japa_completed))
                         } else if (it is Outcome.Failure) {
-                            requireContext().toast(it.msg)
+                            requireContext().toast(getString(R.string.err_msg_failure_action))
+                        }
+                    }
+                }
+
+                launch {
+                    viewModel.deleteJapaOutcome.collectLatest {
+                        if(it is Outcome.Success) {
+                            requireContext().toast(getString(R.string.msg_japa_delete, it.data))
+                        } else if (it is Outcome.Failure) {
+                            requireContext().toast(getString(R.string.err_msg_failure_action))
                         }
                     }
                 }
@@ -151,10 +162,21 @@ class JapaDetailsFragment(private val japaName: String) : Fragment(), View.OnCli
                         dialogRef?.dismiss()
                     }
                     positiveButton(R.string.label_yes) {
-                        val entity = viewModel.myJapaDetailsOutcome.value
-                        if (entity is Outcome.Success) {
-                            viewModel.completeJapa(entity.data.name)
-                        }
+                        viewModel.completeJapa(japaName)
+                    }
+                }
+            }
+
+            R.id.btnDelete -> {
+                dialogRef?.dismiss()
+                dialogRef = requireContext().showMaterialAlert {
+                    titleResource = R.string.warning_title
+                    messageResource = R.string.warning_delete_japa
+                    negativeButton(R.string.label_cancel) {
+                        dialogRef?.dismiss()
+                    }
+                    positiveButton(R.string.label_yes) {
+                        viewModel.deleteJapa(japaName)
                     }
                 }
             }
