@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.Lifecycle
+import androidx.lifecycle.Observer
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import com.kaushal.japacounter.R
@@ -32,6 +33,8 @@ class JapaDetailsFragment(private val japaName: String) : Fragment(), View.OnCli
 
     companion object {
         fun newInstance(japaName: String) = JapaDetailsFragment(japaName)
+
+        private const val TAG_SHOW_UPDATE_DIALOG = "update_counter_dialog"
     }
 
     override fun onCreateView(
@@ -55,8 +58,15 @@ class JapaDetailsFragment(private val japaName: String) : Fragment(), View.OnCli
         binding.btnUpdate.setOnClickListener(this)
         binding.btnMarkComplete.setOnClickListener(this)
         binding.btnDelete.setOnClickListener(this)
+        binding.textCurrentCount.setOnClickListener(this)
 
         viewModel.getJapaDetails(japaName)
+
+        val newCountObserver = Observer<Int> { newValue ->
+            binding.textCurrentCount.text = newValue.toString()
+        }
+
+        viewModel.newCountLiveData.observe(viewLifecycleOwner, newCountObserver)
 
         viewLifecycleOwner.lifecycleScope.launch {
             viewLifecycleOwner.lifecycle.repeatOnLifecycle(Lifecycle.State.STARTED) {
@@ -130,6 +140,12 @@ class JapaDetailsFragment(private val japaName: String) : Fragment(), View.OnCli
                 var currentValue = binding.textCurrentCount.text.toString().toInt()
                 currentValue += 1
                 binding.textCurrentCount.setText(currentValue.toString())
+            }
+
+            R.id.text_current_count -> {
+                UpdateJapaDialog.newInstance().show(childFragmentManager,
+                    TAG_SHOW_UPDATE_DIALOG
+                )
             }
 
             R.id.btnUpdate -> {

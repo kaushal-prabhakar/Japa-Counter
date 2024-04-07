@@ -6,8 +6,12 @@ import android.content.DialogInterface
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.animation.CycleInterpolator
+import android.view.animation.TranslateAnimation
 import android.view.inputmethod.InputMethodManager
+import android.widget.EditText
 import android.widget.Toast
+import androidx.appcompat.widget.AppCompatEditText
 import androidx.core.content.getSystemService
 import androidx.localbroadcastmanager.content.LocalBroadcastManager
 import com.kaushal.japacounter.ui.widgets.MaterialAlertBuilder
@@ -51,3 +55,10 @@ inline fun Instant.ofPattern(outPattern: String): String? = try {
 
 fun Context.showMaterialAlert(init : MaterialAlertBuilder<DialogInterface>.() -> Unit): Dialog =
     AndroidMaterialAlertBuilder(this).apply { init() }.show()
+
+fun AppCompatEditText.shakeError() {
+    val shake = TranslateAnimation(0f, 10f, 0f, 0f)
+    shake.setDuration(500)
+    shake.interpolator = CycleInterpolator(7f)
+    startAnimation(shake)
+}

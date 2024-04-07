@@ -6,13 +6,16 @@
     <string name="namaste_emoji">&#x1F64F;&#x1F3FB;</string>
     <string name="label_new_japa">New Japa</string>
     <string name="label_save">Save</string>
+    <string name="label_add">Add</string>
     <string name="label_cancel">Cancel</string>
     <string name="label_mark_complete">Mark Completed</string>
     <string name="label_delete">Delete</string>
     <string name="label_update">Update</string>
+    <string name="label_deduct">Deduct</string>
 
     <string name="hint_japa_name">Japa Name</string>
     <string name="hint_goal">Goal</string>
+    <string name="hint_new_value">The value to be added or deducted from your current count</string>
     <string name="label_current_count">Current Count</string>
     <string name="label_last_updated_time">Last updated Time</string>
     <string name="label_last_updated_value">Last Updated Value</string>

@@ -1,5 +1,6 @@
 package com.kaushal.japacounter.ui
 
+import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.kaushal.japacounter.data.Entities
@@ -117,5 +118,9 @@ class MainActivityViewModel @Inject constructor(
                 _deleteJapaOutcome.emit(Outcome.failure(ex, ex.message.orEmpty()))
             }
         }
+    }
+
+    val newCountLiveData: MutableLiveData<Int> by lazy {
+        MutableLiveData<Int>()
     }
 }
