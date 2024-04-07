@@ -37,7 +37,7 @@
             android:layout_marginBottom="@dimen/vertical_padding_8dp"
             android:text="@string/label_japa_list"
             android:background="@color/teal_700"
-            android:textSize="@dimen/button_text"
+            android:textSize="@dimen/standard_text"
             android:textColor="@color/white"
             android:textAllCaps="false"/>
 
@@ -49,7 +49,7 @@
             android:layout_marginTop="@dimen/vertical_padding_8dp"
             android:text="@string/label_add_japa"
             android:background="@color/teal_700"
-            android:textSize="@dimen/button_text"
+            android:textSize="@dimen/standard_text"
             android:textColor="@color/white"
             android:textAllCaps="false"/>
 
