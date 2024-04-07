@@ -16,7 +16,6 @@ class JapaListRecyclerAdapter(private val myJapaList: MutableList<Entities>, pri
             binding.txtName.text = item.name
             binding.txtGoal.text = item.goal.toString()
             binding.txtCurrentCount.text = item.currentValue.toString()
-            binding.txtLastUpdatedTime.text = item.lastUpdatedTime.toString()
             binding.txtStatus.text = item.status.name
 
             binding.japaInfoCard.setOnClickListener {
