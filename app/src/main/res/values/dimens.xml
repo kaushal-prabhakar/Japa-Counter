@@ -16,4 +16,5 @@
     <dimen name="sub_item_vertical_margin">4dp</dimen>
     <dimen name="border_width">1dp</dimen>
     <dimen name="corner_radius">4dp</dimen>
+    <dimen name="recycler_view_item_margin">5dp</dimen>
 </resources>

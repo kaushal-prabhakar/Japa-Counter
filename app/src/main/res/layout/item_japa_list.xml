@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     tools:context=".ui.MainActivity">
 
     <com.google.android.material.card.MaterialCardView
@@ -11,6 +11,8 @@
         android:id="@+id/japa_info_card"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/recycler_view_item_margin"
+        android:layout_marginBottom="@dimen/recycler_view_item_margin"
         app:cardBackgroundColor="@color/card_view_bg"
         app:cardCornerRadius="@dimen/card_view_corner_radius"
         app:cardElevation="@dimen/zero_dp"
@@ -79,28 +81,6 @@
                 android:textColor="@color/purple_500"
                 android:textSize="@dimen/standard_text"
                 app:layout_constraintTop_toBottomOf="@+id/label_current_count"
-                app:layout_constraintStart_toStartOf="parent"/>
-
-            <com.google.android.material.textview.MaterialTextView
-                android:id="@+id/label_last_updated_time"
-                style="@style/SFProRegularFontStyle"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textColor="@color/purple_500"
-                android:textSize="@dimen/standard_text"
-                android:text="@string/label_last_updated_time"
-                android:paddingVertical="@dimen/padding_8dp"
-                app:layout_constraintTop_toBottomOf="@+id/txt_current_count"
-                app:layout_constraintStart_toStartOf="parent"/>
-
-            <com.google.android.material.textview.MaterialTextView
-                android:id="@+id/txt_last_updated_time"
-                style="@style/SFProRegularFontStyle"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textColor="@color/purple_500"
-                android:textSize="@dimen/standard_text"
-                app:layout_constraintTop_toBottomOf="@+id/label_last_updated_time"
                 app:layout_constraintStart_toStartOf="parent"/>
 
             <com.google.android.material.textview.MaterialTextView
