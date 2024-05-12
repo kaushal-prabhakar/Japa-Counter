@@ -15,7 +15,7 @@
 
     <string name="hint_japa_name">Japa Name</string>
     <string name="hint_goal">Goal</string>
-    <string name="hint_new_value">The value to be added or deducted from your current count</string>
+    <string name="hint_new_value">The value to be added to or deducted from your current count</string>
     <string name="label_current_count">Current Count</string>
     <string name="label_last_updated_time">Last updated Time</string>
     <string name="label_last_updated_value">Last Updated Value</string>

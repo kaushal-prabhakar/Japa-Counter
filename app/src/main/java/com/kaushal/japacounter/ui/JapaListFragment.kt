@@ -1,6 +1,8 @@
 package com.kaushal.japacounter.ui
 
+import android.content.Context
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -28,27 +30,33 @@ class JapaListFragment : Fragment() {
 
     companion object {
         fun newInstance() = JapaListFragment()
+        val TAG = JapaListFragment::class.java.simpleName
     }
 
     private val onItemSelectedListener: (String) -> Unit = {
-        val japaDetailsFragment: JapaDetailsFragment = JapaDetailsFragment.newInstance(it)
-        parentFragmentManager.beginTransaction().replace(R.id.container, japaDetailsFragment)
+        parentFragmentManager.beginTransaction().replace(R.id.container, JapaDetailsFragment.newInstance(it))
             .addToBackStack(null)
             .commit()
+    }
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        Log.i(TAG, "onCreate")
     }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         // Inflate the layout for this fragment
+        Log.i(TAG, "onCreateView")
         _binding = FragmentJapaListBinding.inflate(inflater, container, false)
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
+        Log.i(TAG, "onViewCreated")
         val actionBar = requireActivity().actionBar
         actionBar?.setDisplayHomeAsUpEnabled(true)
 
@@ -71,5 +79,50 @@ class JapaListFragment : Fragment() {
                 }
             }
         }
+    }
+
+    override fun onStart() {
+        Log.i(TAG, "onStart")
+        super.onStart()
+    }
+
+    override fun onStop() {
+        Log.i(TAG, "onStop")
+        super.onStop()
+    }
+
+    override fun onResume() {
+        Log.i(TAG, "onResume")
+        super.onResume()
+    }
+
+    override fun onAttach(context: Context) {
+        Log.i(TAG, "onAttach")
+        super.onAttach(context)
+    }
+
+    override fun onDestroyView() {
+        Log.i(TAG, "onDestroyView")
+        super.onDestroyView()
+    }
+
+    override fun onDestroy() {
+        Log.i(TAG, "onDestroy")
+        super.onDestroy()
+    }
+
+    override fun onDetach() {
+        Log.i(TAG, "onDetach")
+        super.onDetach()
+    }
+
+    override fun onPause() {
+        super.onPause()
+        Log.i(TAG, "onPause")
+    }
+
+    override fun onActivityCreated(savedInstanceState: Bundle?) {
+        Log.i(TAG, "onActivityCreated")
+        super.onActivityCreated(savedInstanceState)
     }
 }

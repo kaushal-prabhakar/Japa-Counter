@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.Lifecycle
@@ -17,12 +18,11 @@ import com.kaushal.japacounter.data.Outcome
 import com.kaushal.japacounter.databinding.FragmentJapaDetailsBinding
 import com.kaushal.japacounter.ext.showMaterialAlert
 import com.kaushal.japacounter.ext.toast
-import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
 
 
-class JapaDetailsFragment(private val japaName: String) : Fragment(), View.OnClickListener {
+class JapaDetailsFragment : Fragment(), View.OnClickListener {
 
     private val viewModel by activityViewModels<MainActivityViewModel>()
     private var _binding: FragmentJapaDetailsBinding? = null
@@ -32,7 +32,12 @@ class JapaDetailsFragment(private val japaName: String) : Fragment(), View.OnCli
     private var dialogRef: Dialog? = null
 
     companion object {
-        fun newInstance(japaName: String) = JapaDetailsFragment(japaName)
+
+        private const val keyName = "japaName"
+
+        fun newInstance(name: String) = JapaDetailsFragment().apply {
+            arguments = bundleOf(keyName to name)
+        }
 
         private const val TAG_SHOW_UPDATE_DIALOG = "update_counter_dialog"
     }
@@ -45,6 +50,11 @@ class JapaDetailsFragment(private val japaName: String) : Fragment(), View.OnCli
         _binding = FragmentJapaDetailsBinding.inflate(inflater, container, false)
         return binding.root
     }
+
+    private val japaName: String
+        get() {
+            return requireArguments().getString(keyName).toString()
+        }
 
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

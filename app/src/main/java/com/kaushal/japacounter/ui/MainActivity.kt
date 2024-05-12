@@ -1,20 +1,11 @@
 package com.kaushal.japacounter.ui
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.Menu
 import android.view.MenuItem
-import android.view.View
-import androidx.activity.viewModels
-import androidx.lifecycle.Lifecycle
-import androidx.lifecycle.lifecycleScope
-import androidx.lifecycle.repeatOnLifecycle
+import androidx.appcompat.app.AppCompatActivity
 import com.kaushal.japacounter.R
 import com.kaushal.japacounter.databinding.ActivityMainBinding
-import com.kaushal.japacounter.ext.toast
 import dagger.hilt.android.AndroidEntryPoint
-import kotlinx.coroutines.flow.collectLatest
-import kotlinx.coroutines.launch
 
 @AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
@@ -26,9 +17,10 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        val welcomeFragment: WelcomeFragment = WelcomeFragment.newInstance()
-        supportFragmentManager.beginTransaction().add(R.id.container, welcomeFragment).commit()
-
+        if(savedInstanceState == null) {
+            val welcomeFragment: WelcomeFragment = WelcomeFragment.newInstance()
+            supportFragmentManager.beginTransaction().add(R.id.container, welcomeFragment).commit()
+        }
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
@@ -39,5 +31,15 @@ class MainActivity : AppCompatActivity() {
             }
         }
         return super.onOptionsItemSelected(item)
+    }
+
+    override fun onStart() {
+        super.onStart()
+       // Log.i(TAG, "onStart")
+    }
+
+    override fun onResume() {
+        super.onResume()
+       // Log.i(TAG, "onResume")
     }
 }
